@@ -1,11 +1,28 @@
 ---
-title: "ronit_kumar_portfolio"
+title: "Ronit Kumar"
+about:
+  template: jolla
+  image: test_img.jpg
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/ronit-prajith-5331ab244/
+    - icon: github
+      text: Github
+      href: https://github.com/TrillDaBest
 ---
 
-This is a Quarto website.
+My name is Ronit, I am a Computer Science major and a Data Science minor @California State University, Monterey Bay.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Education
 
+- Electronics and Telecommunications Diploma @VIT | 2020-2023
+- B.S. in IT @VSIT | 2023-2024
+- B.S. in Computer Science @California State University Monterey Bay | 2024-2026
+
+## Experience
+
+- Electronics and microcontroller internship @Tata Institute of Fundamental Research | 6 weeks
 ```{r}
 1 + 1
 ```

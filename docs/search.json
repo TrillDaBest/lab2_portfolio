@@ -7,13 +7,6 @@
     "text": "My name is Ronit, I am a Computer Science major and a Data Science minor @California State University, Monterey Bay."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Hello everyone! My name is Ronit! I am an international transfer student from India. I am currently majoring in computer science and my minor is in Data Science. I like to play video games and have always been fond of computers when i was 3. I also like to workout and eat food.\n\n1 + 1\n\n[1] 2"
-  },
-  {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Ronit Kumar",
@@ -26,5 +19,12 @@
     "title": "Ronit Kumar",
     "section": "Experience",
     "text": "Experience\n\nElectronics and microcontroller internship @Tata Institute of Fundamental Research | 6 weeks\n\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hello everyone! My name is Ronit! I am an international transfer student from India. I am currently majoring in computer science and my minor is in Data Science. I like to play video games and have always been fond of computers when i was 3. I also like to workout and eat food.\n\n1 + 1\n\n[1] 2"
   }
 ]
