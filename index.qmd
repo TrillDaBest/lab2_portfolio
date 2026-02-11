@@ -24,5 +24,4 @@ My name is Ronit, I am a Computer Science major and a Data Science minor @Califo
 
 - Electronics and microcontroller internship @Tata Institute of Fundamental Research | 6 weeks
 ```{r}
-1 + 1
 ```
