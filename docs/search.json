@@ -4,21 +4,21 @@
     "href": "index.html",
     "title": "Ronit Kumar",
     "section": "",
-    "text": "My name is Ronit, I am a Computer Science major and a Data Science minor @California State University, Monterey Bay."
+    "text": "My name is Ronit Kumar. I am a Computer Science major and Data Science minor at California State University, Monterey Bay. I am interested in software development, and using data to solve real world problems."
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Ronit Kumar",
     "section": "Education",
-    "text": "Education\n\nElectronics and Telecommunications Diploma @VIT | 2020-2023\nB.S. in IT @VSIT | 2023-2024\nB.S. in Computer Science @California State University Monterey Bay | 2024-2026"
+    "text": "Education\n\nB.S. in Computer Science, California State University, Monterey Bay | 2024–2026\nB.S. in Information Technology, VSIT | 2023–2024\nDiploma in Electronics and Telecommunications, VP | 2020–2023"
   },
   {
     "objectID": "index.html#experience",
     "href": "index.html#experience",
     "title": "Ronit Kumar",
     "section": "Experience",
-    "text": "Experience\n\nElectronics and microcontroller internship @Tata Institute of Fundamental Research | 6 weeks"
+    "text": "Experience\n\nElectronics and Microcontroller Intern, Tata Institute of Fundamental Research | 6 weeks"
   },
   {
     "objectID": "about.html",
@@ -26,5 +26,68 @@
     "title": "About",
     "section": "",
     "text": "Hello everyone! My name is Ronit! I am an international transfer student from India. I am currently majoring in computer science and my minor is in Data Science. I like to play video games and have always been fond of computers when i was 3. I also like to workout and eat food."
+  },
+  {
+    "objectID": "aircraft_delays/portfolio_1.html",
+    "href": "aircraft_delays/portfolio_1.html",
+    "title": "Portfolio_Part_1",
+    "section": "",
+    "text": "My data is a subset from the U.S Airline delay dataset from Kaggle released in 2008. It had near about 2 million rows, i created my own working subset by randomly sampling around 40000 rows using python.\n\n\n\nIn this data, each row is one individual flight. It has information such as when the flight was scheduled, when it departed or arrived, the airports involved and different causes of the delay.\nSome key variables in my project are:\nDepTime - Actual Departure time (HHMM Format)\nArrDelay - Arrival delay (Numeric)\nOrigin - Origin Airport Code (String)\nDest - Destination Airport Code (String)\nCarrierDelay - Delay caused by airline carrier (Numeric)\nWeatherDelay - Delay caused by weather (Numeric)\nSecurityDelay - Delay Caused by Security (Numeric)\nLAteAirCraftDelay - Delay caused by late incoming aircraft (Numeric)\nNASDelay- Delay caused by National Aviation System. (Numeric)"
+  },
+  {
+    "objectID": "aircraft_delays/portfolio_1.html#visualization-1",
+    "href": "aircraft_delays/portfolio_1.html#visualization-1",
+    "title": "Portfolio_Part_1",
+    "section": "Visualization 1",
+    "text": "Visualization 1\nWe see the top 15 flight routes with the highest average arrival delays in this graph. Each bar represents one route, combining the origin and destination airport codes. The longer the bar, the higher the average arrival delay for that route. This helps identify which routes were most affected by delays in the dataset. The graph is also ordered to make the perception easier.\nThis graph helps us with the research question: Which flight routes have the worst average delays? as we can identify which routes have the worst average delays by looking at the length of the bar.\n\nplot_top_routes &lt;- flights_clean |&gt;\n  transmute( #Keeps only the route columns and arrival delay column\n    origin = origin,\n    dest = dest,\n    arr_delay = arrdelay\n  ) |&gt;\n  filter(!is.na(origin), !is.na(dest), !is.na(arr_delay)) |&gt; #Removing rows with missing origin, destination, or arrival delay values.\n  group_by(origin, dest) |&gt; #Groupihng the data by each origin and destination airport\n  summarise( #Calculation average \n    flights = n(),\n    avg_arr_delay = mean(arr_delay),\n    .groups = \"drop\"\n  ) |&gt;\n  filter(flights &gt;= 50) |&gt; #Keeps only routes that have atleast 50 flights.\n  unite(\"route\", origin, dest, sep = \" → \") |&gt;  #Combines origin and destination columns into one route column using an arrow symbol for easier understanding.\n  slice_max(avg_arr_delay, n = 15) |&gt; #Selecting the 15 routes with the highest average arrival delays.\n  arrange(avg_arr_delay) #Ordering \n\nggplot(plot_top_routes, aes(x = avg_arr_delay, y = reorder(route, avg_arr_delay))) +\n  geom_col(fill = \"#2C7FB8\") +\n  labs(\n    title = \"Top Routes by Avg Arrival Delay\",\n    x = \"Avg Arrival Delay (minutes)\",\n    y = NULL,\n    caption = \"Source: U.S. Airline Delay Dataset, 2008 subset from Kaggle\"\n  ) +\n  theme_minimal()\n\n\n\n\nTop 15 flight routes with the highest average arrival delays."
+  },
+  {
+    "objectID": "aircraft_delays/portfolio_1.html#visualization-2",
+    "href": "aircraft_delays/portfolio_1.html#visualization-2",
+    "title": "Portfolio_Part_1",
+    "section": "Visualization 2",
+    "text": "Visualization 2\nThis plot shows the total delay hours for each delay cause in the dataset. Each point represents one delay category, such as carrier, weather, NAS, security, or late aircraft delay.\nThis visualization helps answer the research question: Which causes of delay contribute the most total delay time? By looking at the points, we can see which delay causes had more impact on overall flight delays.\n\ndelay_causes &lt;- flights_clean |&gt;\n  select(carrierdelay, weatherdelay, nasdelay, securitydelay, lateaircraftdelay) |&gt;\n  pivot_longer( #Puts all delay types into one column.\n    cols = everything(),\n    names_to = \"delay_cause\",\n    values_to = \"delay_minutes\"\n  ) |&gt;\n  \n  group_by(delay_cause) |&gt;   #Groups the data by each type of delay cause.\n  summarize(\n    total_delay_hours = sum(delay_minutes, na.rm = TRUE) / 60\n  ) |&gt;\n  arrange(total_delay_hours)\n\nggplot(delay_causes, aes(x = total_delay_hours, y = reorder(delay_cause, total_delay_hours))) +\n  geom_point(size = 4, color = \"#2C7FB8\") +\n  geom_text(aes(label = round(total_delay_hours, 0)), vjust = 2.25) +\n  #Adding text (hours value) below each dot in the graph and rounding to 0.\n  labs(\n    title = \"Total Delay Hours by Cause\",\n    x = \"Total Delay Hours\",\n    y = \"Delay Cause\",\n    caption = \"Source: U.S. Airline Delay Dataset, 2008 from Kaggle\"\n  ) +\n  theme_minimal()\n\n\n\n\nTotal delay hours by delay cause."
+  },
+  {
+    "objectID": "aircraft_delays/portfolio_1.html#visualization-3",
+    "href": "aircraft_delays/portfolio_1.html#visualization-3",
+    "title": "Portfolio_Part_1",
+    "section": "Visualization 3",
+    "text": "Visualization 3\nThis line plot shows the average arrival delay by scheduled departure hour. Each point represents one hour of the day, and the line shows how average delay changes throughout the day.\nFrom the graph we can see that average arrival delays are not the same across all hours. The highest average delay appears around the early morning hours, with another increase later in the day during the evening.\nThis visualization helps answer the research question: When do flight delays peak during the day? We see the overall pattern and can identify the times when delays are highest.\n\ndelay_by_hour &lt;- flights_clean |&gt;\n  mutate(dep_hour = floor(crsdeptime / 100)) |&gt;   #Converting scheduled departure time from HHMM format into just the hour.\n  filter( #removing missing values, keeping hours 0 to 23.\n    !is.na(dep_hour),\n    !is.na(arrdelay),\n    dep_hour &gt;= 0,\n    dep_hour &lt;= 23,\n    arrdelay &gt; 0\n  ) |&gt;\n  group_by(dep_hour) |&gt;\n  summarize( #Calculates the average arrival delay for each hour.\n\n    avg_arr_delay = mean(arrdelay, na.rm = TRUE)\n  )\n\nggplot(delay_by_hour, aes(x = dep_hour, y = avg_arr_delay)) +\n  geom_line(color = \"#2C7FB8\", linewidth = 1) +   #Adds a line to show the delay trend across the day.\n  geom_point(color = \"#253494\", size = 2) +  #Adds points for each hour.\n  labs(\n    title = \"Average Arrival Delay by Hour of Day\",\n    x = \"Scheduled Departure Hour\",\n    y = \"Average Arrival Delay in Minutes\",\n    caption = \"Source: U.S. Airline Delay Dataset, 2008 from Kaggle\"\n  ) +\n  theme_minimal()\n\n\n\n\nAverage arrival delay by scheduled departure hour."
+  },
+  {
+    "objectID": "portfolio_1.html",
+    "href": "portfolio_1.html",
+    "title": "Aircraft Delay Analysis",
+    "section": "",
+    "text": "My data is a subset from the U.S Airline delay dataset from Kaggle released in 2008. It had near about 2 million rows, i created my own working subset by randomly sampling around 40000 rows using python.\n\n\n\nIn this data, each row is one individual flight. It has information such as when the flight was scheduled, when it departed or arrived, the airports involved and different causes of the delay.\nSome key variables in my project are:\nDepTime - Actual Departure time (HHMM Format)\nArrDelay - Arrival delay (Numeric)\nOrigin - Origin Airport Code (String)\nDest - Destination Airport Code (String)\nCarrierDelay - Delay caused by airline carrier (Numeric)\nWeatherDelay - Delay caused by weather (Numeric)\nSecurityDelay - Delay Caused by Security (Numeric)\nLAteAirCraftDelay - Delay caused by late incoming aircraft (Numeric)\nNASDelay- Delay caused by National Aviation System. (Numeric)"
+  },
+  {
+    "objectID": "portfolio_1.html#visualization-1",
+    "href": "portfolio_1.html#visualization-1",
+    "title": "Aircraft Delay Analysis",
+    "section": "Visualization 1",
+    "text": "Visualization 1\nWe see the top 15 flight routes with the highest average arrival delays in this graph. Each bar represents one route, combining the origin and destination airport codes. The longer the bar, the higher the average arrival delay for that route. This helps identify which routes were most affected by delays in the dataset. The graph is also ordered to make the perception easier.\nThis graph helps us with the research question: Which flight routes have the worst average delays? as we can identify which routes have the worst average delays by looking at the length of the bar.\n\n\n\n\n\nTop 15 flight routes with the highest average arrival delays."
+  },
+  {
+    "objectID": "portfolio_1.html#visualization-2",
+    "href": "portfolio_1.html#visualization-2",
+    "title": "Aircraft Delay Analysis",
+    "section": "Visualization 2",
+    "text": "Visualization 2\nThis plot shows the total delay hours for each delay cause in the dataset. Each point represents one delay category, such as carrier, weather, NAS, security, or late aircraft delay.\nThis visualization helps answer the research question: Which causes of delay contribute the most total delay time? By looking at the points, we can see which delay causes had more impact on overall flight delays.\n\n\n\n\n\nTotal delay hours by delay cause."
+  },
+  {
+    "objectID": "portfolio_1.html#visualization-3",
+    "href": "portfolio_1.html#visualization-3",
+    "title": "Aircraft Delay Analysis",
+    "section": "Visualization 3",
+    "text": "Visualization 3\nThis line plot shows the average arrival delay by scheduled departure hour. Each point represents one hour of the day, and the line shows how average delay changes throughout the day.\nFrom the graph we can see that average arrival delays are not the same across all hours. The highest average delay appears around the early morning hours, with another increase later in the day during the evening.\nThis visualization helps answer the research question: When do flight delays peak during the day? We see the overall pattern and can identify the times when delays are highest.\n\n\n\n\n\nAverage arrival delay by scheduled departure hour."
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Ronit Kumar",
+    "section": "Projects",
+    "text": "Projects\n\nAircraft Delay Analysis\nAnalyzed a subset of the 2008 U.S. airline delay dataset to explore when flight delays peak, which delay causes contribute the most total delay time, and which flight routes have the highest average arrival delays.\nTools used: R, tidyverse, ggplot2, Quarto"
   }
 ]
