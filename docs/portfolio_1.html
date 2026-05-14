@@ -133,9 +133,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-visualization" id="toc-data-visualization" class="nav-link" data-scroll-target="#data-visualization">Data Visualization</a></li>
   <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a>
   <ul class="collapse">
-  <li><a href="#visualization-1" id="toc-visualization-1" class="nav-link" data-scroll-target="#visualization-1">Visualization 1</a></li>
-  <li><a href="#visualization-2" id="toc-visualization-2" class="nav-link" data-scroll-target="#visualization-2">Visualization 2</a></li>
-  <li><a href="#visualization-3" id="toc-visualization-3" class="nav-link" data-scroll-target="#visualization-3">Visualization 3</a></li>
+  <li><a href="#routes-with-the-highest-average-delays" id="toc-routes-with-the-highest-average-delays" class="nav-link" data-scroll-target="#routes-with-the-highest-average-delays">Routes with the Highest Average Delays</a></li>
+  <li><a href="#biggest-contributors-to-flight-delays" id="toc-biggest-contributors-to-flight-delays" class="nav-link" data-scroll-target="#biggest-contributors-to-flight-delays">Biggest Contributors to Flight Delays</a></li>
+  <li><a href="#when-flight-delays-peak-during-the-day" id="toc-when-flight-delays-peak-during-the-day" class="nav-link" data-scroll-target="#when-flight-delays-peak-during-the-day">When Flight Delays Peak During the Day</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -218,8 +218,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Yes, there are some missing values in delay causes. These will be removed. I am intending to use na.rm = TRUE for these when calculating mean delays or total delay hours.</p>
 <p>Do you need to create any new variables? What variables? How?</p>
 <p>Yes, i will be making a hour variable from departure time by extracting hour from HHMM value. I also create a route variable by combining origin and destination airport codes.</p>
-<section id="visualization-1" class="level2">
-<h2 class="anchored" data-anchor-id="visualization-1">Visualization 1</h2>
+<section id="routes-with-the-highest-average-delays" class="level2">
+<h2 class="anchored" data-anchor-id="routes-with-the-highest-average-delays">Routes with the Highest Average Delays</h2>
 <p>We see the top 15 flight routes with the highest average arrival delays in this graph. Each bar represents one route, combining the origin and destination airport codes. The longer the bar, the higher the average arrival delay for that route. This helps identify which routes were most affected by delays in the dataset. The graph is also ordered to make the perception easier.</p>
 <p>This graph helps us with the research question: <strong>Which flight routes have the worst average delays?</strong> as we can identify which routes have the worst average delays by looking at the length of the bar.</p>
 <div class="cell">
@@ -233,8 +233,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="visualization-2" class="level2">
-<h2 class="anchored" data-anchor-id="visualization-2">Visualization 2</h2>
+<section id="biggest-contributors-to-flight-delays" class="level2">
+<h2 class="anchored" data-anchor-id="biggest-contributors-to-flight-delays">Biggest Contributors to Flight Delays</h2>
 <p>This plot shows the total delay hours for each delay cause in the dataset. Each point represents one delay category, such as carrier, weather, NAS, security, or late aircraft delay.</p>
 <p>This visualization helps answer the research question: <strong>Which causes of delay contribute the most total delay time?</strong> By looking at the points, we can see which delay causes had more impact on overall flight delays.</p>
 <div class="cell">
@@ -248,8 +248,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="visualization-3" class="level2">
-<h2 class="anchored" data-anchor-id="visualization-3">Visualization 3</h2>
+<section id="when-flight-delays-peak-during-the-day" class="level2">
+<h2 class="anchored" data-anchor-id="when-flight-delays-peak-during-the-day">When Flight Delays Peak During the Day</h2>
 <p>This line plot shows the average arrival delay by scheduled departure hour. Each point represents one hour of the day, and the line shows how average delay changes throughout the day.</p>
 <p>From the graph we can see that average arrival delays are not the same across all hours. The highest average delay appears around the early morning hours, with another increase later in the day during the evening.</p>
 <p>This visualization helps answer the research question: <strong>When do flight delays peak during the day?</strong> We see the overall pattern and can identify the times when delays are highest.</p>

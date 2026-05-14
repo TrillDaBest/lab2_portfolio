@@ -114,7 +114,7 @@ mutate(
 )
 ```
 
-## Which Routes Had the Worst Delays?
+## Routes with the Highest Average Delays
 
 We see the top 15 flight routes with the highest average arrival delays in this graph. Each bar represents one route, combining the origin and destination airport codes. The longer the bar, the higher the average arrival delay for that route. This helps identify which routes were most affected by delays in the dataset. The graph is also ordered to make the perception easier.
 
@@ -154,7 +154,7 @@ ggplot(plot_top_routes, aes(x = avg_arr_delay, y = reorder(route, avg_arr_delay)
   theme_minimal()
 ```
 
-## What Caused the Most Delay Time?
+## Biggest Contributors to Flight Delays
 
 This plot shows the total delay hours for each delay cause in the dataset. Each point represents one delay category, such as carrier, weather, NAS, security, or late aircraft delay.
 
@@ -192,7 +192,7 @@ ggplot(delay_causes, aes(x = total_delay_hours, y = reorder(delay_cause, total_d
   theme_minimal()
 ```
 
-## When Were Flights Most Delayed?
+## When Flight Delays Peak During the Day
 
 This line plot shows the average arrival delay by scheduled departure hour. Each point represents one hour of the day, and the line shows how average delay changes throughout the day.
 

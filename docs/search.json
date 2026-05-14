@@ -89,5 +89,47 @@
     "title": "Ronit Kumar",
     "section": "Projects",
     "text": "Projects\n\nAircraft Delay Analysis\nAnalyzed a subset of the 2008 U.S. airline delay dataset to explore when flight delays peak, which delay causes contribute the most total delay time, and which flight routes have the highest average arrival delays.\nTools used: R, tidyverse, ggplot2, Quarto and Python."
+  },
+  {
+    "objectID": "portfolio_1.html#which-routes-had-the-worst-delays",
+    "href": "portfolio_1.html#which-routes-had-the-worst-delays",
+    "title": "Aircraft Delay Analysis",
+    "section": "Which Routes Had the Worst Delays?",
+    "text": "Which Routes Had the Worst Delays?\nWe see the top 15 flight routes with the highest average arrival delays in this graph. Each bar represents one route, combining the origin and destination airport codes. The longer the bar, the higher the average arrival delay for that route. This helps identify which routes were most affected by delays in the dataset. The graph is also ordered to make the perception easier.\nThis graph helps us with the research question: Which flight routes have the worst average delays? as we can identify which routes have the worst average delays by looking at the length of the bar.\n\n\n\n\n\nTop 15 flight routes with the highest average arrival delays."
+  },
+  {
+    "objectID": "portfolio_1.html#what-caused-the-most-delay-time",
+    "href": "portfolio_1.html#what-caused-the-most-delay-time",
+    "title": "Aircraft Delay Analysis",
+    "section": "What Caused the Most Delay Time?",
+    "text": "What Caused the Most Delay Time?\nThis plot shows the total delay hours for each delay cause in the dataset. Each point represents one delay category, such as carrier, weather, NAS, security, or late aircraft delay.\nThis visualization helps answer the research question: Which causes of delay contribute the most total delay time? By looking at the points, we can see which delay causes had more impact on overall flight delays.\n\n\n\n\n\nTotal delay hours by delay cause."
+  },
+  {
+    "objectID": "portfolio_1.html#when-were-flights-most-delayed",
+    "href": "portfolio_1.html#when-were-flights-most-delayed",
+    "title": "Aircraft Delay Analysis",
+    "section": "When Were Flights Most Delayed?",
+    "text": "When Were Flights Most Delayed?\nThis line plot shows the average arrival delay by scheduled departure hour. Each point represents one hour of the day, and the line shows how average delay changes throughout the day.\nFrom the graph we can see that average arrival delays are not the same across all hours. The highest average delay appears around the early morning hours, with another increase later in the day during the evening.\nThis visualization helps answer the research question: When do flight delays peak during the day? We see the overall pattern and can identify the times when delays are highest.\n\n\n\n\n\nAverage arrival delay by scheduled departure hour."
+  },
+  {
+    "objectID": "portfolio_1.html#routes-with-the-highest-average-delays",
+    "href": "portfolio_1.html#routes-with-the-highest-average-delays",
+    "title": "Aircraft Delay Analysis",
+    "section": "Routes with the Highest Average Delays",
+    "text": "Routes with the Highest Average Delays\nWe see the top 15 flight routes with the highest average arrival delays in this graph. Each bar represents one route, combining the origin and destination airport codes. The longer the bar, the higher the average arrival delay for that route. This helps identify which routes were most affected by delays in the dataset. The graph is also ordered to make the perception easier.\nThis graph helps us with the research question: Which flight routes have the worst average delays? as we can identify which routes have the worst average delays by looking at the length of the bar.\n\n\n\n\n\nTop 15 flight routes with the highest average arrival delays."
+  },
+  {
+    "objectID": "portfolio_1.html#biggest-contributors-to-flight-delays",
+    "href": "portfolio_1.html#biggest-contributors-to-flight-delays",
+    "title": "Aircraft Delay Analysis",
+    "section": "Biggest Contributors to Flight Delays",
+    "text": "Biggest Contributors to Flight Delays\nThis plot shows the total delay hours for each delay cause in the dataset. Each point represents one delay category, such as carrier, weather, NAS, security, or late aircraft delay.\nThis visualization helps answer the research question: Which causes of delay contribute the most total delay time? By looking at the points, we can see which delay causes had more impact on overall flight delays.\n\n\n\n\n\nTotal delay hours by delay cause."
+  },
+  {
+    "objectID": "portfolio_1.html#when-flight-delays-peak-during-the-day",
+    "href": "portfolio_1.html#when-flight-delays-peak-during-the-day",
+    "title": "Aircraft Delay Analysis",
+    "section": "When Flight Delays Peak During the Day",
+    "text": "When Flight Delays Peak During the Day\nThis line plot shows the average arrival delay by scheduled departure hour. Each point represents one hour of the day, and the line shows how average delay changes throughout the day.\nFrom the graph we can see that average arrival delays are not the same across all hours. The highest average delay appears around the early morning hours, with another increase later in the day during the evening.\nThis visualization helps answer the research question: When do flight delays peak during the day? We see the overall pattern and can identify the times when delays are highest.\n\n\n\n\n\nAverage arrival delay by scheduled departure hour."
   }
 ]
