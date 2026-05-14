@@ -88,6 +88,6 @@
     "href": "index.html#projects",
     "title": "Ronit Kumar",
     "section": "Projects",
-    "text": "Projects\n\nAircraft Delay Analysis\nAnalyzed a subset of the 2008 U.S. airline delay dataset to explore when flight delays peak, which delay causes contribute the most total delay time, and which flight routes have the highest average arrival delays.\nTools used: R, tidyverse, ggplot2, Quarto"
+    "text": "Projects\n\nAircraft Delay Analysis\nAnalyzed a subset of the 2008 U.S. airline delay dataset to explore when flight delays peak, which delay causes contribute the most total delay time, and which flight routes have the highest average arrival delays.\nTools used: R, tidyverse, ggplot2, Quarto and Python."
   }
 ]

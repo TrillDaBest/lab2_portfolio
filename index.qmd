@@ -29,7 +29,7 @@ My name is Ronit Kumar. I am a Computer Science major and Data Science minor at 
 
 Analyzed a subset of the 2008 U.S. airline delay dataset to explore when flight delays peak, which delay causes contribute the most total delay time, and which flight routes have the highest average arrival delays.
 
-**Tools used:** R, tidyverse, ggplot2, Quarto
+**Tools used:** R, tidyverse, ggplot2, Quarto and Python.
 
 ## Experience
 
