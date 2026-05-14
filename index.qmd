@@ -19,9 +19,16 @@ My name is Ronit Kumar. I am a Computer Science major and Data Science minor at 
 
 ## Education
 
-- **B.S. in Computer Science**, California State University, Monterey Bay | 2024–2026
-- **B.S. in Information Technology**, VSIT | 2023–2024
-- **Diploma in Electronics and Telecommunications**, VP | 2020–2023
+::: {.text-center}
+**California State University, Monterey Bay** | Monterey Bay, CA  
+B.S. Computer Science (2024–2026)  
+<br>
+**VSIT** | Mumbai, India  
+B.S. Information Technology (2023–2024)  
+<br>
+**Vidyalankar Polytechnic** | Mumbai, India  
+Diploma in Electronics and Telecommunications (2020–2023)
+:::
 
 ## Projects
 
